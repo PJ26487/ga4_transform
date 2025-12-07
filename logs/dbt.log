@@ -1,0 +1,28 @@
+[0m02:18:27.241624 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B16D96BA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B13D54550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B17D5BB10>]}
+
+
+============================== 02:18:27.257313 | 61874ede-69ec-4e42-8a8b-8f5bea66b079 ==============================
+[0m02:18:27.257313 [info ] [MainThread]: Running with dbt=1.10.8
+[0m02:18:27.258373 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\HP\\.dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'invocation_command': 'dbt init ga4_transform', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m02:18:27.501346 [debug] [MainThread]: Starter project path: C:\Users\HP\Documents\programming_gcp\bq_flatten_duckdb_v3\venv\Lib\site-packages\dbt\include\starter_project
+[0m02:18:27.536469 [info ] [MainThread]: 
+Your new dbt project "ga4_transform" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m02:18:27.537276 [info ] [MainThread]: Setting up your profile.
+[0m02:18:31.945336 [debug] [MainThread]: Command `dbt init` succeeded at 02:18:31.945107 after 4.91 seconds
+[0m02:18:31.945845 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B17E18B00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B17E679B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021B16BDF020>]}
+[0m02:18:31.946249 [debug] [MainThread]: Flushing usage events
+[0m02:18:33.846440 [debug] [MainThread]: An error was encountered while trying to flush usage events

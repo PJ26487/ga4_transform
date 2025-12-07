@@ -1,0 +1,18 @@
+# only extracts the events table as of now
+# Date range to pull
+date_range:
+  type: date_range # "date_range" for actual dates or "days" for the number of days from end_date
+  start_date: 2021-01-28 # can leave blank if "days" selected
+  end_date: 2021-01-29
+  max_days_extraction: 10    # inclusive
+
+# BigQuery dataset config
+bigquery:
+  project_id: bigquery-public-data
+  dataset: ga4_obfuscated_sample_ecommerce
+
+# DuckDB output file name
+output:
+  duckdb_file: ga4_export.duckdb
+  table_name: ga4_raw
+  merge_type: replace
