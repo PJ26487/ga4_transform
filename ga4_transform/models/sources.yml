@@ -1,0 +1,6 @@
+version : 2
+sources:
+  - name: raw_ga4_export
+    schema: main
+    tables:
+      - name: ga4_raw
