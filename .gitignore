@@ -1,3 +1,11 @@
 .env
 venv
 example_cloud_pull.py
+*.duckdb
+*.duckdb.wal
+__pycache__/
+*.pyc
+.pytest_cache/
+ga4_transform/target/
+ga4_transform/dbt_packages/
+.DS_Store

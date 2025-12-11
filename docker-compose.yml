@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  ga4-pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ga4-etl-pipeline
+    env_file:
+      - .env
+    volumes:
+      # Mount config for easy updates
+      - ./config.yaml:/app/config.yaml:ro
+      # Mount DuckDB database directory for persistence
+      - ./ga4_export.duckdb:/app/ga4_export.duckdb
+      # Mount logs directory for debugging
+      - ./logs:/app/logs
+      - ./ga4_transform/logs:/app/ga4_transform/logs
+      # Mount dbt profiles directory
+      - ./profiles.yml:/root/.dbt/profiles.yml:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - ga4-network
+
+networks:
+  ga4-network:
+    driver: bridge

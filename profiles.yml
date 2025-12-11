@@ -1,0 +1,7 @@
+ga4_transform:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: /app/ga4_export.duckdb
+      schema: main
