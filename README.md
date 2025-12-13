@@ -287,34 +287,11 @@ All flattened tables are materialized as tables in DuckDB and include:
 - Verify the DuckDB file was created during extraction
 - Check that the file path is absolute or relative to dbt working directory
 
-#### 4. Memory Issues with Large Datasets
-
-**Problem**: Pipeline fails on large date ranges
-
-**Solution**:
-- Reduce `max_days_extraction` in `config.yaml`
-- Split extraction into smaller date ranges
-- Increase Docker memory allocation (Docker Desktop → Settings → Resources)
-
 ### Getting Help
 
 - Check the logs: `logs/dbt.log` and console output
 - Verify configuration: Ensure `config.yaml` and `.env` are correctly formatted
 - Test connectivity: Run `python -c "from google.cloud import bigquery; print('OK')"` to verify BigQuery access
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-[Add your license here]
 
 ## Support
 
@@ -322,4 +299,4 @@ For questions or issues, please open an issue on the repository or contact [your
 
 ---
 
-**Built for analysts, by analysts.** 🚀
+**Built for analysts, by analysts.** 
