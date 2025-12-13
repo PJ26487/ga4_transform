@@ -1,23 +1,35 @@
-version: '3.8'
-
 services:
   ga4-pipeline:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: ga4-etl-pipeline
+    
+    # This loads variables into Python's memory (os.environ)
     env_file:
       - .env
+      
     volumes:
+      # --- CHANGED: ADDED THIS LINE BELOW ---
+      # This physically puts the .env file into /app/.env so your bash script finds it
+      - ./.env:/app/.env
+      # --------------------------------------
+
       # Mount config for easy updates
       - ./config.yaml:/app/config.yaml:ro
-      # Mount DuckDB database directory for persistence
+      
+      # Mount DuckDB database for persistence
+      # Note: If this file doesn't exist on Windows yet, Docker might create it as a folder.
+      # It is safer to create an empty file named "ga4_export.duckdb" on Windows first.
       - ./ga4_export.duckdb:/app/ga4_export.duckdb
+      
       # Mount logs directory for debugging
       - ./logs:/app/logs
       - ./ga4_transform/logs:/app/ga4_transform/logs
+      
       # Mount dbt profiles directory
       - ./profiles.yml:/root/.dbt/profiles.yml:ro
+
     environment:
       - PYTHONUNBUFFERED=1
     networks:

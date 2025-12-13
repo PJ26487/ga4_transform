@@ -28,12 +28,17 @@ COPY ga4_transform/ ./ga4_transform/
 # Create directories for logs and data
 RUN mkdir -p logs ga4_transform/logs ga4_transform/target
 
-# Copy entrypoint script
-COPY run_pipeline.sh /run_pipeline.sh
-RUN chmod +x /run_pipeline.sh
+# --- CHANGED SECTION START ---
+# Copy entrypoint script to current directory (.) instead of root (/)
+COPY run_pipeline.sh .
 
 # Create dbt profiles directory
 RUN mkdir -p /root/.dbt
 
-# Default command
-CMD ["/run_pipeline.sh"]
+# Fix Windows line endings and make executable
+# (Now this works because the file is in the current directory)
+RUN sed -i 's/\r$//' run_pipeline.sh && chmod +x run_pipeline.sh
+
+# Default command (changed to look in current directory)
+CMD ["./run_pipeline.sh"]
+# --- CHANGED SECTION END ---
